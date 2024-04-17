@@ -383,11 +383,7 @@ def main():
     
     if len(mainfile) <= 128:
         while (mainfile[PC//4] != "00000000000000000000000001100011" and PC//4 < len(mainfile)):
-            print(mainfile[PC//4])
-            count += 1
-            print(count ,"    count")
             PC = simulator(mainfile[PC//4],PC,OUT)
-            print(PC)
 
         OUT.write("0b" + deci_to_bin(PC,32) + " ")
         for i in registers:
