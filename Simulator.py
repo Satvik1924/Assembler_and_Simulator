@@ -366,22 +366,13 @@ def main():
     for line in F:
         if line != "" and line != "\n":
             mainfile.append(line)
-    for i in range(0,len(mainfile)-1):
-        if i == len(mainfile)-1:
-            mainfile[i] = (mainfile[i])
-        else:
-            mainfile[i] = (mainfile[i][:-1])
     F.close()
     PC = 0
     OUT = open("out", "w")
     count = 0
     if len(mainfile) <= 128:
         while (mainfile[PC//4] != "00000000000000000000000001100011" and PC//4 < len(mainfile)):
-            PC = simulator(mainfile[PC//4],PC,OUT)
-            if count == len(mainfile):
-                break
-            if mainfile[PC//4] == "00000000000000000000000001100011":
-                break
+            PC = simulator(mainfile[PC//4][0:33],PC,OUT)
         OUT.write("0b" + deci_to_bin(PC,32) + " ")
         for i in registers:
             OUT.write(registers[i] + " ")
