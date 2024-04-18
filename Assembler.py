@@ -1,3 +1,4 @@
+import sys
 registers = {"zero":"00000","ra":"00001","sp":"00010","gp":"00011","tp":"00100","t0":"00101","t1":"00110","t2":"00111","s0":"01000","fp":"01000",
             "s1":"01001","a0":"01010","a1":"01011","a2":"01100","a3":"01101","a4":"01110","a5":"01111","a6":"10000","a7":"10001"
             ,"s2":"10010","s3":"10011","s4":"10100","s5":"10101","s6":"10110","s7":"10111","s8":"11000","s9":"11001",
@@ -240,7 +241,9 @@ def assembler(instruction_list):
         
 
 def main():
-    F = open("hard5.txt", "r")
+    inp = sys.argv[1]
+    out = sys.argv[2]
+    F = open("inp", "r")
     mainfile = []
     for line in F:
         if line != "" and line != "\n":
@@ -262,7 +265,7 @@ def main():
         if mlabel in labels.keys():
             mainfile[labels[mlabel]-1] = mainfile[labels[mlabel]-1].replace(mlabel + ": " , "")
 
-    OUT = open("output.txt", "w")
+    OUT = open("out", "w")
     counter = 1
     if len(mainfile) <= 128:
         for line in mainfile:
