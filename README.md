@@ -124,9 +124,3 @@ beq zero, zero, 0   # Halt
 - Limited memory space
 - No support for pseudo-instructions
 - Maximum 128 instructions per program
-
-## Contributing
-Contributions are welcome! Please ensure your code follows the existing style and includes appropriate error handling.
-
-## License
-This project is available for educational and research purposes.
